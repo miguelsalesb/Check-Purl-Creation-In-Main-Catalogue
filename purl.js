@@ -81,7 +81,7 @@ function writeFile(data) {
             
             function verify85640(field, ind1, ind2) {
     
-                var testeCampo = '0';
+                var testField = '0';
     
                 for (var fld = 0; fld < noOfFields; fld++) {
                     var numberOfSubFields = $('datafield').eq(fld).find('subfield').length;
@@ -90,12 +90,12 @@ function writeFile(data) {
     
                         if (($('datafield').eq(fld).attr('tag') == field) && ($('datafield').eq(fld).attr('ind1') == ind1) &&
                             ($('datafield').eq(fld).attr('ind2') == ind2)) {
-                            testeCampo = '1';
+                            testField = '1';
                             break;
                         }
                     }
                 }
-                if (testeCampo == '0') {
+                if (testeField == '0') {
                     file.write(',Doesn\'t exist');
                 }
                 else {
@@ -135,7 +135,7 @@ function writeFile(data) {
             
             function verify85641(field, ind1, ind2) {
     
-                var testeCampo = '0';
+                var testField = '0';
     
                 for (var fld = 0; fld < noOfFields; fld++) {
                     var numberOfSubFields = $('datafield').eq(fld).find('subfield').length;
@@ -144,12 +144,12 @@ function writeFile(data) {
     
                         if (($('datafield').eq(fld).attr('tag') == field) && ($('datafield').eq(fld).attr('ind1') == ind1) &&
                             ($('datafield').eq(fld).attr('ind2') == ind2)) {
-                            testeCampo = '1';
+                            testField = '1';
                             break;
                         }
                     }
                 }
-                if (testeCampo == '0') {
+                if (testField == '0') {
                     file.write(',Doesn\'t exist');
                 }
                 else {
@@ -197,7 +197,7 @@ function writeFile(data) {
             
             function verify85649(field, ind1, ind2) {
     
-                var testeCampo = '0';
+                var testField = '0';
     
                 for (var fld = 0; fld < noOfFields; fld++) {
                     var numberOfSubFields = $('datafield').eq(fld).find('subfield').length;
@@ -206,12 +206,12 @@ function writeFile(data) {
     
                         if (($('datafield').eq(fld).attr('tag') == field) && ($('datafield').eq(fld).attr('ind1') == ind1) &&
                             ($('datafield').eq(fld).attr('ind2') == ind2)) {
-                            testeCampo = '1';
+                            testField = '1';
                             break;
                         }
                     }
                 }
-                if (testeCampo == '0') {
+                if (testField == '0') {
                     file.write(',Doesn\'t exist');
                 }
                 else {
@@ -259,16 +259,16 @@ function writeFile(data) {
             
             function verify958_livre() {
     
-                var testeCampo = '0';
+                var testField = '0';
     
                 for (var fld = 0; fld < noOfFields; fld++) {
     
                     if (($('datafield').eq(fld).attr('tag') == '958')) {
-                        testeCampo = '1';
+                        testField = '1';
                         break;
                     }
                 }
-                if (testeCampo == '0') {
+                if (testField == '0') {
                     file.write(',Doesn\'t exist');
                 }
                 else {
@@ -276,7 +276,7 @@ function writeFile(data) {
                 }
                 
                 function verify958_continue() {
-                    var testeCampo958 = '0';
+                    var testField958 = '0';
     
                     for (var fld = 0; fld < noOfFields; fld++) {
                         var numberOfSubFields = $('datafield').eq(fld).find('subfield').length;
@@ -323,34 +323,34 @@ function writeFile(data) {
                             (aggregateFields == '$aBND$bLivre$cDigitalizado$ehttp://purl.pt/' + purl + '/service/media/cover/max') || (aggregateFields == '$aBND$bLivre$cNascido digital$ehttp://purl.pt/' + purl + '/service/media/cover/max')) {
                             if (field_958c == '$cNascido digital') {
                                 file.write(',Free Access - Born-digital');
-                                testeCampo958 = '1';
+                                testField958 = '1';
                                 break;
                             }
                             else {
                                 file.write(',Free Access - Digitized');
-                                testeCampo958 = '1';
+                                testField958 = '1';
                                 break;
                             }
                         }
                     }
-                    if (testeCampo958 == '0') {
+                    if (testField958 == '0') {
                         file.write(',Internal Access');
                     }
                 }
             }
             
-            function verify958_interno() {
+            function verify958_internal() {
     
-                var testeCampo = '0';
+                var testField = '0';
     
                 for (var fld = 0; fld < noOfFields; fld++) {
     
                     if (($('datafield').eq(fld).attr('tag') == '958')) {
-                        testeCampo = '1';
+                        testField = '1';
                         break;
                     }
                 }
-                if (testeCampo == '0') {
+                if (testField == '0') {
                     file.write(',Doesn\'t exist');
                 }
                 else {
@@ -359,7 +359,7 @@ function writeFile(data) {
                 
                 function verify958_continue() {
     
-                    var testeCampo958_interno = '0';
+                    var testField958_internal = '0';
     
                     for (var fld = 0; fld < noOfFields; fld++) {
                         var numberOfSubFields = $('datafield').eq(fld).find('subfield').length;
@@ -367,41 +367,41 @@ function writeFile(data) {
                         for (var sf = 0; sf < numberOfSubFields; sf++) {
     
                             if (($('datafield').eq(fld).find('subfield').eq(sf).attr('code') == 'a') && ($('datafield').eq(fld).find('subfield').eq(sf).text() == 'BND')) {
-                                var field_958a_interno = 'BND';
+                                var field_958a_internal = 'BND';
                             }
                             if (($('datafield').eq(fld).find('subfield').eq(sf).attr('code') == 'b') && ($('datafield').eq(fld).find('subfield').eq(sf).text() == 'Interno')) {
-                                var field_958b_interno = 'Interno';
+                                var field_958b_internal = 'Interno';
                             }
-                            var field_958c_interno;
+                            var field_958c_internal;
                             if (($('datafield').eq(fld).find('subfield').eq(sf).attr('code') == 'c') && (($('datafield').eq(fld).find('subfield').eq(sf).text() == 'Digitalizado'))) {
-                                field_958c_interno = 'Digitalizado';
+                                field_958c_internal = 'Digitalizado';
                             }
                             else if (($('datafield').eq(fld).find('subfield').eq(sf).attr('code') == 'c') && ($('datafield').eq(fld).find('subfield').eq(sf).text() == 'Nascido digital')) {
-                                field_958c_interno = 'Nascido digital';
+                                field_958c_internal = 'Nascido digital';
                             }
                         }
     
-                        var aggregateFields_interno = '$a' + field_958a_interno + '$b' + field_958b_interno + '$c' + field_958c_interno;
+                        var aggregateFields_internal = '$a' + field_958a_internal + '$b' + field_958b_internal + '$c' + field_958c_internal;
                         var subFieldValue = $('datafield').eq(fld).find('subfield').eq(sf).text();
     
                         if (subFieldValue.includes('*S')) {
                             file.write('RECORD WITH PROBLEMS!!!');
                         }
     
-                        if ((aggregateFields_interno == '$aBND$bInterno$cDigitalizado') || (aggregateFields_interno == '$aBND$bInterno$cNascido digital')) {
-                            if (field_958c_interno == 'Nascido digital') {
+                        if ((aggregateFields_internal == '$aBND$bInterno$cDigitalizado') || (aggregateFields_internal == '$aBND$bInterno$cNascido digital')) {
+                            if (field_958c_internal == 'Nascido digital') {
                                 file.write(',Internal - Born-digital');
-                                testeCampo958_interno = '1';
+                                testField958_internal = '1';
                                 break;
                             }
                             else {
                                 file.write(',Internal - Digitized');
-                                testeCampo958_interno = '1';
+                                testField958_internal = '1';
                                 break;
                             }
                         }
                     }
-                    if (testeCampo958_interno == '0') {
+                    if (testField958_internal == '0') {
                         file.write(',Free Access');
                     }
                 }
@@ -427,7 +427,7 @@ function writeFile(data) {
             verify958_livre();
             verify85640('856', '4', '0');
             verify85641('856', '4', '1');
-            verify958_interno();
+            verify958_internal();
             verifyField997('997');
             file.write('\n');
         });
